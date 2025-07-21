@@ -15,7 +15,7 @@ enum reg_index
     R6, /* Supervisro/User stack pointer */
     R7, /* Temporary register for the PC register */
     R_PC,
-    R_PSR,  /*Process status register */
+    R_PSR,  /* Process status register */
     R_COUNT /* The amount of registers */
 };
 

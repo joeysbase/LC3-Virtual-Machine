@@ -95,6 +95,7 @@ uint16_t mem_read(uint16_t address)
 }
 /* Codes copy-paste from justinmeiners tutorial. End */
 
+/* Instructions */
 void ADD(uint16_t instr)
 {
     uint16_t DR = (instr >> 9) & 0x7;

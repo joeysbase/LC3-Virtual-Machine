@@ -34,7 +34,7 @@ int main(int argc, char *args[])
         exit(EXIT_FAILURE);
     }
     
-    // int debug = (int)args[2][0]-48;
+    // int debug = (int)args[2][0] - 48;
     running = 1;
     uint16_t instr = 0;
     uint16_t op_code = 0;
@@ -127,6 +127,8 @@ void read_file(FILE *file)
     registers[R_PC] = origin;
     uint16_t *p = memory + origin;
     size_t read = fread(p, sizeof(uint16_t), MAX_MEMORY - origin, file);
+
+    /* Swap the lowest bit with the highest bit, because lc3 uses big-endian */
     while (read-- > 0)
     {
         *p = swap16(*p);
@@ -151,6 +153,7 @@ void show_binary(uint16_t instr)
     }
 }
 
+/* Print out machine codes for debugging */
 void show_asm(uint16_t op_code, uint16_t instr)
 {
     switch (op_code)
